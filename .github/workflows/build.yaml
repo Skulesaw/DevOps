@@ -13,13 +13,13 @@ jobs:
 
       - name: Build Step
         id: build
-        run: |
-          echo "This is the build output." > build_output.txt
+        run: echo "This is the build output." > build_output.txt
 
       - name: Download a single artifact
         uses: actions/download-artifact@v4
         with:
           name: my-artifact
+          path : build_output.txt
 
   test:
     needs: build
@@ -34,5 +34,4 @@ jobs:
           name: my-artifact
 
       - name: Use Build Output
-        run: |
-            cat build_output.txt
+        run: cat build_output.txt
