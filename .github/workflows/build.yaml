@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-        uses: actions/upload-artifact@v4
 
       - name: Build Step
         id: build
@@ -23,8 +22,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-        uses: actions/upload-artifact@v4
 
       - name: Use Build Output
         run: |
-            cat build_output.txt
+            cat ${{ jobs.build.outputs.build_output.txt }}
