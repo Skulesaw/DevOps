@@ -25,4 +25,4 @@ jobs:
 
       - name: Use Build Output
         run: |
-            cat ${{ jobs.build.outputs.build_output.txt }}
+            cat outputs.build_output.txt
